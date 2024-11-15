@@ -1,0 +1,2310 @@
+{% load static %}
+<html class="no-js" lang="en">
+  <head>
+    <title>BS Sensation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Elitechain" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="BS-Sensation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styless.css' %}" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="shortcut icon" href="{% static 'logo1.png' %}" />
+    <link rel="apple-touch-icon" href="{% static 'logo1.png' %}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="{% static 'logo1.png' %}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="{% static 'logo1.png' %}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/settings.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/layers.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/navigation.css' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/vendors.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'demos/product-showcase/product-showcase.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+  </head>
+
+  <body data-mobile-nav-style="classic">
+    <h1>{{ content.title }}</h1>
+     <p>{{ content.description }}</p>    <!--Top header with search bar, logo, and cart -->
+    <div
+      class="container-fluid d-flex justify-content-between align-items-center py-3"
+    >
+      <!-- Search Bar on the Left -->
+      <form
+        class="d-flex search-bar align-items-center position-relative w-md-auto myForm"
+        id="search-form"
+        action=""
+        method="GET"
+      >
+        {% csrf_token %}
+        <input
+          class="form-control"
+          type="search"
+          id="search-input"
+          name="search"
+          placeholder="Search for tester"
+          aria-label="Search"
+        />
+        <button class="btn" type="submit" id="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <div id="search-results" class="search-results"></div>
+
+      <!-- Centered Logo -->
+      <a class="navbar-brand mx-auto" href="#">
+        <img src="{% static 'logo1.png' %}" alt="Logo" width="80" height="80" />
+        <!-- Logo size adjusted -->
+      </a>
+
+      <!-- Account and Cart Section on the Right -->
+      <div class="d-flex align-items-center">
+        <a
+          href="#purchase"
+          class="btn btn-very-small left-icon btn-rounded btn-box-shadow btn-switch-text btn-dark-gray section-link"
+        >
+          <span>
+            <span class="d-none d-xl-inline-block"
+              ><i class="bi bi-bag-check fs-16"></i
+            ></span>
+            <span class="btn-double-text" data-text="Order now">Order now</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <nav
+      class="navbar navbar-expand-lg header-light bg-transparent glass-effect"
+      data-header-hover="light"
+    >
+      <div class="container-fluid">
+        <div class="col-auto col-lg-2 me-lg-0 me-auto">
+          <!-- Main logo in the navbar area -->
+        </div>
+
+        <div class="col-auto menu-order position-static">
+          <button
+            class="navbar-toggler float-start"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#overview" class="inner-link nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#purchase" class="inner-link nav-link">Products</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pricing" class="inner-link nav-link">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="inner-link nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Order Now Button -->
+        <div class="col-auto col-lg-2 text-end d-none d-sm-flex">
+          <div class="header-icon">
+            <div class="header-button">
+              <a
+                href="Admin/cart_page.php"
+                class="btn btn-very-small left-icon btn-rounded btn-box-shadow btn-dark-gray section-link"
+                style="background-color:black; display: flex; justify-content: flex-end;"
+              >
+                <span>
+                  <span class="d-none d-md-inline-block">
+                    <i
+                      class="fa-solid fa-bag-shopping fs-16"
+                      style="color: white;"
+                    ></i>
+                  </span>
+                  <span
+                    id="cart-count"
+                    class="btn-double-text"
+                    style="color:white;"
+                  >
+                    Cart (0)
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- order now button -->
+
+    <!-- order now button -->
+
+    <!-- order now button -->
+
+    <section
+      id="home"
+      class="p-0 ipad-top-space-margin"
+      style="background-image: url(images/demo-product-showcase-rev-slider-02.jpg);"
+    >
+      <article class="content">
+        <div
+          id="rev_slider_31_1_wrapper"
+          class="rev_slider_wrapper fullwidthbanner-container"
+        >
+          <div
+            id="rev_slider_31_1"
+            class="rev_slider fullwidthabanner"
+            data-version="5.4.5"
+          >
+            <ul>
+              <li
+                data-index="rs-73"
+                data-transition="fade"
+                data-slotamount="default"
+                data-hideafterloop="0"
+                data-hideslideonmobile="off"
+                data-easein="default"
+                data-easeout="default"
+                data-masterspeed="300"
+                data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/"
+                data-rotate="0"
+                data-saveperformance="off"
+                data-title="Slide"
+                data-param1="01"
+                data-description=""
+              >
+                <img
+                  src="{% static 'images/rev-trans-tile.png' %}"
+                  alt="dummy"
+                  class="rev-slidebg"
+                  data-bgparallax="6"
+                />
+
+                <div
+                  class="tp-caption tp-resizeme alt-font rs-parallaxlevel-2"
+                  style="background: -webkit-linear-gradient(0deg, #0099ff 15%, #1543da 65%, #16c3da 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
+                  id="slide-layer-1"
+                  data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"sX:1.3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-fontsize="['346','250','200','120']"
+                  data-lineheight="['450','360','300','200']"
+                  data-fontweight="['700','700', '700','700']"
+                  data-color="['#FFF','#FFF', '#000', '#000']"
+                  data-textalign="['center','center','center','center']"
+                  data-letterspacing="['-24','-15','-10','-8']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-140','0','-100','-60']"
+                  data-width="['auto', 'auto', 'auto', 'auto']"
+                  data-height="['auto', 'auto', 'auto', 'auto']"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                >
+                  Plus 3000
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme rs-parallaxlevel-1"
+                  id="slide-layer-12"
+                  data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Linear"},
+                                     {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Linear"}]'
+                  data-type="image"
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-100','0','-50','0']"
+                  data-width="['1126','900','800','600']"
+                  data-height="['auto','auto','auto','auto']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                >
+                  <img
+                    src="{% static 'images/rev-trans-tile.png' %}"
+                    data-lazyload="images/demo-product-showcase-rev-slider-02.png"
+                    class="w-100 h-auto"
+                    alt="image"
+                  />
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme"
+                  id="slide-layer-2"
+                  data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"opacity:0;fb:30px;sX:1.5;sY:1.5;opacity:0;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-type="image"
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-100','-40','-65','-50']"
+                  data-width="['775', '580', '500', '300']"
+                  data-height="['auto', 'auto', 'auto', 'auto']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  style="z-index: 5;"
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="8"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <img
+                      src="{% static 'images/rev-trans-tile.png' %}"
+                      data-lazyload="images/POSH.png"
+                      class="w-100 h-auto rotating-image"
+                      alt="image"
+                    />
+                  </div>
+                </div>
+
+                <style>
+                  @keyframes rotate {
+                      0% {
+                          transform: rotate(0deg);
+                      }
+                      100% {
+                          transform: rotate(360deg);
+                      }
+                  }
+
+                  .rotating-image {
+                      animation: rotate 10s linear;
+                  }
+
+                  .tilted-image {
+                      transform: rotate(20deg);
+                      /* Adjust skew angles as needed */
+                      transition: transform 1s ease-in-out;
+                  }
+                </style>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      const image = document.querySelector('.rotating-image');
+
+                      image.addEventListener('animationend', function() {
+                          image.classList.remove('rotating-image');
+                          image.classList.add('tilted-image');
+                      });
+                  });
+                </script>
+
+                <div
+                  class="tp-caption tp-resizeme wave-animation"
+                  id="slide-layer-13"
+                  data-visibility="['on','on','on','off']"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['150','110','100','50']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-voffset="['90','80','40','0']"
+                  data-width="['50','40','40','30']"
+                  data-height="['250','220','200','150']"
+                  data-type="shape"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  data-frames='[{"delay":3000,"speed":3000,"frame":"0","from":"rZ:30;","to":"rZ:30;","ease":"Power3.easeInOut"}]'
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="5"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme wave-animation"
+                  id="slide-layer-14"
+                  data-visibility="['on','on','on','off']"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['-150','-150','-100','-50']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-voffset="['90','100','30','0']"
+                  data-width="['50','40','40','30']"
+                  data-height="['250','220','200','150']"
+                  data-type="shape"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  data-frames='[{"delay":3000,"speed":3000,"frame":"0","from":"rZ:-210;","to":"rZ:-210;","ease":"Power3.easeInOut"}]'
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="5"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme alt-font"
+                  id="slide-layer-3"
+                  data-frames='[{"delay": 2200, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                                     {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-type="text"
+                  data-fontsize="['20','16','15','15']"
+                  data-lineheight="['32','32','32','24']"
+                  data-fontweight="['400', '400', '400', '400']"
+                  data-color="['#828282','#828282','#828282','#828282']"
+                  data-textalign="['left','left','left','left']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10','10','30','15']"
+                  data-voffset="['340','140','160','130']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-basealign="grid"
+                >
+                  Nature
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-4"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":640,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  4.5mL of E-Liquid
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-5"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":5000,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  4.5% Nicotine
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-6"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":7500,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  Disposible E-Cig
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme alt-font"
+                  id="slide-layer-7"
+                  data-frames='[{"delay": 2200, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                                     {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-type="text"
+                  data-fontsize="['20','16','15','15']"
+                  data-lineheight="['32','32','32','24']"
+                  data-fontweight="['400', '400', '400', '400']"
+                  data-color="['#828282','#828282','#828282','#828282']"
+                  data-textalign="['right','right','right','right']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10','10','30','15']"
+                  data-voffset="['340','140','160','130']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-basealign="grid"
+                >
+                  Specialties
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-8"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  21 Flavours
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-9"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":5000,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  No Filling OR Charging
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-10"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":7500,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power3.easeInOut"}]'
+                >
+                  1500 Puffs
+                </div>
+
+                <a
+                  class="tp-caption text-uppercase alt-font d-flex justify-content-center align-items-center play-video-botton popup-youtube"
+                  href="https://www.youtube.com/watch?v=cfXHhfNy7tU"
+                  id="slide-layer-11"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['0','0','0','0']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-voffset="['110','50','50','25']"
+                  data-color="['#2c3038', '#2c3038', '#2c3038', '#2c3038']"
+                  data-fontsize="['22','18','16','15']"
+                  data-lineheight="['74','60','50','55']"
+                  data-textalign="['center','center','center','center']"
+                  data-width="['280','220','200','200']"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-fontweight="['700','700','700','700']"
+                  data-type="button"
+                  data-actions=""
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":"+990","speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":750,"frame":"999","to":"x:[-100%];opacity:1;","ease":"Power4.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgba(0,0,0,1);bc:rgba(0,0,0,1);bs:solid;bw:0 0 0 0;"}]'
+                  style="background-color:#ffffff; border-radius: 50px;-webkit-box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2); -moz-box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2);box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2);"
+                >
+                  play<i
+                    class="feather icon-feather-play-circle"
+                    style="font-size: 38px; padding: 0 10px; background: -webkit-linear-gradient(0deg, #ff007b 15%, #a419be 65%, #7b16da 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
+                  ></i
+                  >video</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="banner-container">
+      <img
+        src="{% static 'Website_Banner.jpeg' %}"
+        alt="Website Banner"
+        class="img-fluid banner-img"
+      />
+    </div>
+
+    <section id="purchase">
+      <h1
+        style="text-align: center; font-size: 3em; font-weight: bold; color: #FF5733; margin: 20px 0; font-family: 'Verdana', sans-serif; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); line-height: 1.3;"
+      >
+        Our Products
+      </h1>
+
+          <div class="custom-product-listing" id="searchResults">
+      <!-- Loop through products -->
+      {% for product in products %}
+          <div class="product-card">
+              <!-- Display product images -->
+              <div class="product-image-frame">
+                  <!-- Normal product image -->
+                  <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image normal-image">
+                  <!-- Hover product image -->
+                  <img src="{{ product.hover_image.url }}" alt="{{ product.title }} hover" class="product-image hover-image">
+              </div>
+    
+              <div class="product-details">
+                  <h2 class="product-title">{{ product.title }}</h2>
+    
+                  <p class="product-price">
+                      {% if product.discount %}
+                          <span class="original-price">RS. {{ product.price|floatformat:2 }}</span>
+                          <span class="discounted-price" data-price="{{ product.price }}" data-discount="{{ product.discount }}"></span>
+                      {% else %}
+                          <span class="current-price">RS. {{ product.price|floatformat:2 }}</span>
+                      {% endif %}
+                  </p>
+    
+                  <p class="product-description">{{ product.description }}</p>
+    
+                  <button class="add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+              </div>
+          </div>
+      {% endfor %}
+    </div>
+    
+    <script>
+        // JavaScript to calculate and display discounted prices
+        const priceElements = document.querySelectorAll('.discounted-price');
+        priceElements.forEach((priceElement) => {
+            const price = parseFloat(priceElement.getAttribute('data-price'));
+            const discount = parseFloat(priceElement.getAttribute('data-discount'));
+            const discountedPrice = (price - discount).toFixed(2);
+            priceElement.textContent = "RS. " + discountedPrice;
+        });
+    </script>
+    
+    <style>
+      /* Basic reset */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+    
+      /* Main container styling */
+      .custom-product-listing {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          padding: 20px;
+          justify-content: center;
+      }
+    
+      /* Individual product card styling */
+      .product-card {
+          width: 100%;
+          max-width: 300px;
+          background: #fff;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s, box-shadow 0.3s;
+          position: relative;
+      }
+    
+      /* Hover effect for product card */
+      .product-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+    
+      /* Larger frame for product image */
+      .product-image-frame {
+          width: 100%;
+          height: 350px; /* Increased height for larger image */
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f4f4f4; /* Light background for visual appeal */
+          position: relative;
+      }
+    
+      /* Image styling within the fixed frame */
+      .product-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Ensures image covers the frame without distortion */
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: opacity 0.3s ease-in-out;
+      }
+    
+      /* Initially hide the hover image */
+      .hover-image {
+          opacity: 0;
+          transform: translateY(20px); /* Slightly slide down */
+      }
+    
+      /* On hover, slide and fade in the hover image */
+      .product-card:hover .hover-image {
+          opacity: 1;
+          transform: translateY(0); /* Slide up to the normal position */
+      }
+    
+      /* Hide normal image on hover */
+      .product-card:hover .normal-image {
+          opacity: 0;
+      }
+    
+      .product-details {
+          padding: 15px;
+          text-align: center;
+      }
+    
+      .product-title {
+          font-size: 1.2em;
+          color: #333;
+          margin-bottom: 10px;
+      }
+    
+      .product-price {
+          font-size: 1.1em;
+          margin-bottom: 10px;
+      }
+    
+      .original-price {
+          color: #b0b0b0;
+          text-decoration: line-through;
+          margin-right: 10px;
+      }
+    
+      .discounted-price {
+          color: #e63946;
+          font-weight: bold;
+      }
+    
+      .product-description {
+          font-size: 0.9em;
+          color: #666;
+          margin-bottom: 15px;
+      }
+    
+      .add-to-cart-btn {
+          background-color: #4db6ac;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          font-size: 1em;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+    
+      .add-to-cart-btn:hover {
+          background-color: #00796b;
+      }
+    
+      @media (max-width: 768px) {
+          .product-card {
+              max-width: 45%;
+          }
+      }
+    
+      @media (max-width: 576px) {
+          .product-card {
+              max-width: 100%;
+          }
+      }
+    </style>
+          
+    </section>
+
+    <section
+      id="overview"
+      class="background-position-center-top position-relative"
+      style="background-image: url('images/vertical-line-bg-medium-gray.svg')"
+    >
+      <div
+        id="particles-01"
+        data-particle="true"
+        data-particle-options='{"particles": {"number": {"value": 3,"density": {"enable": true,"value_area": 1000}},"color":{"value":["#ff5b74", "#820f89"]},"shape": {"type": "circle","stroke":{"width":0,"color":"#000000"}},"opacity": {"value": 0.7,"random": false,"anim": {"enable": false,"speed": 2,"sync": false}},"size": {"value": 7,"random": true,"anim": {"enable": false,"sync": true}},"move": {"enable": true,"speed":2,"direction": "right","random": false,"straight": false}},"interactivity": {"detect_on": "canvas","events": {"onhover": {"enable": false,"mode": "repulse"},"onclick": {"enable": false,"mode": "push"},"resize": true}},"retina_detect": false}'
+        class="position-absolute top-0px left-0px w-100 z-index-minus-1"
+      ></div>
+      
+      <div class="container">
+        <div class="row justify-content-center align-items-center mb-5">
+          <div
+            class="col-12 text-center last-paragraph-no-margin"
+            data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 1200, "delay": 50, "staggervalue": 150, "easing": "easeOutQuad" }'
+          >
+            <div
+              class="text-center bg-golden-yellow text-white fs-16 lh-36 border-radius-30px d-inline-block ps-20px pe-20px align-middle me-10px"
+            >
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+              ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+              ><i class="bi bi-star-fill"></i>
+            </div>
+            <span
+              class="text-dark-gray fs-26 d-inline-block align-middle ls-minus-05px"
+              >Unveil Your Signature Scent Today</span
+            >
+          </div>
+        </div>
+        <div class="row align-items-center mb-6 md-mb-10">
+          <div
+            class="col-md-6 position-relative sm-mb-30px"
+            data-anime='{ "translateX": [-50, 0], "opacity": [0,1], "duration": 1500, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'
+          >
+            <div
+              class="photo-gallery"
+              style="display: flex; overflow: hidden; position: relative; width: 100%; height: 500px;"
+            >
+              <div
+                class="photo"
+                style="
+                            background-image: url('static/main_perfume.png'); 
+                            background-size: cover; 
+                            background-position: center; 
+                            position: absolute; 
+                            top: 0; 
+                            left: 0; 
+                            width: 100%; 
+                            height: 100%; 
+                            opacity: 0; 
+                            animation: blendIn 9s infinite;
+                        "
+              ></div>
+              <div
+                class="photo"
+                style="
+                            background-image: url('static/BS Sensation.png'); 
+                            background-size: cover; 
+                            background-position: center; 
+                            position: absolute; 
+                            top: 0; 
+                            left: 0; 
+                            width: 100%; 
+                            height: 100%; 
+                            opacity: 0; 
+                            animation: blendIn 9s infinite 3s;
+                        "
+              ></div>
+              <div
+                class="photo"
+                style="
+                            background-image: url('static/SENSATION.png'); 
+                            background-size: cover; 
+                            background-position: center; 
+                            position: absolute; 
+                            top: 0; 
+                            left: 0; 
+                            width: 100%; 
+                            height: 100%; 
+                            opacity: 0; 
+                            animation: blendIn 9s infinite 6s;
+                        "
+              ></div>
+              <!-- Overlay image for hover effect -->
+              <div class="slide-overlay"></div>
+            </div>
+
+            <style>
+              @keyframes blendIn {
+                  0% {
+                      opacity: 0;
+                  }
+                  33% {
+                      opacity: 1;
+                  }
+                  66% {
+                      opacity: 0;
+                  }
+                  100% {
+                      opacity: 0;
+                  }
+              }
+
+              .photo-gallery {
+                  position: relative;
+                  width: 100%;
+                  height: 500px;
+              }
+
+              .slide-overlay {
+                  background-image: url('slide.png');
+                  background-size: cover;
+                  background-position: center;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  transform: translateX(100%) translateY(100%);
+                  transition: transform 0.5s ease;
+                  z-index: 1;
+                  pointer-events: none;
+                  /* Ensure the overlay does not block clicks */
+              }
+
+              .photo-gallery .photo:hover~.slide-overlay {
+                  animation: slideAnimation 1s forwards;
+              }
+
+              @keyframes slideAnimation {
+                  0% {
+                      transform: translateX(100%) translateY(100%);
+                  }
+                  100% {
+                      transform: translateX(-100%) translateY(-100%);
+                  }
+              }
+            </style>
+          </div>
+          
+          <div
+            class="col-md-6 ps-5 md-ps-15px"
+            data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'
+          >
+            <i
+              class="fa-solid fa-spray-can-sparkles align-middle icon-double-large mb-30px md-mb-20px opacity-6"
+            ></i>
+            <h1 class="h1 fw-800 text-dark-black">
+              Elegant Essence For Luxurious Appeal, Bright Moments, and Daily
+              Charm
+            </h1>
+
+            <p class="w-90 lg-w-100 mb-35px">
+              The BS Sensation Perfume Collection is a luxurious range of
+              fragrances designed to captivate the senses. With exquisite bottle
+              designs and premium ingredients, each scent offers a unique
+              olfactory experience that stands out. Whether you're seeking a
+              fresh, floral note or a rich, musky aroma, our collection ensures
+              an unparalleled essence for every occasion.
+            </p>
+            <a
+              href="#purchase"
+              class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-box-shadow btn-round-edge section-link"
+            >
+              <span>
+                <span class="btn-text">Shop Now</span>
+                <span class="btn-icon"
+                  ><i class="feather icon-feather-arrow-right"></i
+                ></span>
+                <span class="btn-icon"
+                  ><i class="feather icon-feather-arrow-right"></i
+                ></span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center"
+          data-anime='{ "el": "childs", "rotateZ": [5, 0], "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 200, "easing": "easeOutQuad" }'
+        >
+          <div
+            class="col process-step-style-05 position-relative hover-box md-mb-30px"
+          >
+            <div class="process-step-item d-flex align-items-center">
+              <div class="process-step-icon-wrap position-relative">
+                <div
+                  class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-90px w-90px bg-white fs-22 box-shadow-medium-bottom fw-600 position-relative"
+                >
+                  <span
+                    class="number position-relative z-index-1 text-dark-gray"
+                    >01</span
+                  >
+                  <div class="box-overlay bg-dark-gray rounded-circle"></div>
+                </div>
+              </div>
+              <div class="process-content ps-25px">
+                <span
+                  class="d-block fw-500 text-dark-gray fs-22 lh-30 ls-minus-05px w-60 xl-w-90"
+                  >Experience the Essence of <strong>Luxury.</strong></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col process-step-style-05 position-relative hover-box md-mb-30px"
+          >
+            <div class="process-step-item d-flex align-items-center">
+              <div class="process-step-icon-wrap position-relative">
+                <div
+                  class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-90px w-90px bg-white fs-22 box-shadow-medium-bottom fw-600 position-relative"
+                >
+                  <span
+                    class="number position-relative z-index-1 text-dark-gray"
+                    >02</span
+                  >
+                  <div class="box-overlay bg-dark-gray rounded-circle"></div>
+                </div>
+              </div>
+              <div class="process-content ps-25px last-paragraph-no-margin">
+                <span
+                  class="d-block fw-500 text-dark-gray fs-22 lh-30 ls-minus-05px w-60 xl-w-90"
+                  >Discover Rich, <strong>Lasting Fragrances</strong> -Pure
+                  Delight.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col process-step-style-05 position-relative hover-box">
+            <div class="process-step-item d-flex align-items-center">
+              <div class="process-step-icon-wrap position-relative">
+                <div
+                  class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-90px w-90px bg-white fs-22 box-shadow-medium-bottom fw-600 position-relative"
+                >
+                  <span
+                    class="number position-relative z-index-1 text-dark-gray"
+                    >03</span
+                  >
+                  <div class="box-overlay bg-dark-gray rounded-circle"></div>
+                </div>
+              </div>
+              <div class="process-content ps-25px last-paragraph-no-margin">
+                <span
+                  class="d-block fw-500 text-dark-gray fs-22 lh-30 ls-minus-05px w-60 xl-w-90"
+                  >Irresistible <strong>Scents</strong> for Every
+                  Occasion.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function displayProductImage(input, imageId, textId) {
+          const file = input.files[0];
+          if (file) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  const image = document.getElementById(imageId);
+                  image.src = e.target.result;
+                  image.style.display = 'block';
+                  document.getElementById(textId).style.display = 'none';
+              }
+              reader.readAsDataURL(file);
+          }
+      }
+    </script>
+
+    <script>
+      function displayProductImage(input) {
+          const file = input.files[0];
+          const productId = input.id.replace('productImage', '');
+          if (file) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  const image = document.getElementById('productImage' + productId);
+                  image.src = e.target.result;
+                  image.style.display = 'block';
+                  document.getElementById('uploadText' + productId).style.display = 'none';
+              }
+              reader.readAsDataURL(file);
+          }
+      }
+    </script>
+    <div id="loader-overlay">
+      <div class="loader"></div>
+    </div>
+    <div id="custom-loader-overlay-women">
+      <div class="custom-loader-women"></div>
+    </div>
+    <div id="custom-loader-overlay-tester">
+      <div class="custom-loader-tester"></div>
+    </div>
+
+    <!-- Purchase section -->
+
+    <!-- purchase section -->
+    <!-- Additional CSS for Hover Effect -->
+
+    <!-- Additional CSS for Hover Effect -->
+
+    <!-- Purchase section -->
+
+    <a
+      href="https://wa.me/923161124655?text=Hey,%20I%20want%20to%20know%20more%20about%20your%20perfumes%20and%20need%20guidance%20on%20which%20scent%20would%20be%20the%20best!"
+      target="_blank"
+      style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; border-radius: 50%; padding: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); text-decoration: none;"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp Icon"
+        style="width: 50px; height: 50px;"
+      />
+    </a>
+
+    <div id="custom-loader-overlay">
+      <div class="custom-loader"></div>
+    </div>
+
+    <div
+      class="swiper-container"
+      style="display: flex; justify-content: center; width: 100%;"
+    >
+      <div
+        class="swiper-wrapper"
+        style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;"
+      >
+        <!-- Men's Section Slide -->
+        <div
+          class="swiper-slide"
+          style="flex-shrink: 0; width: 100%; max-width: 300px; display: flex; flex-direction: column; align-items: center; cursor: pointer;"
+          onclick="showLoaderAndRedirectToMenSection()"
+        >
+          <div
+            style="width: 100%; max-width: 300px; height: 0; padding-bottom: 100%; overflow: hidden; position: relative; margin-bottom: 10px;"
+          >
+            <img
+              src="{% static 'men.jpeg' %}"
+              alt="Men's"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; display: block; object-fit: cover;"
+              data-no-retina=""
+            />
+            <div
+              style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.6); padding: 5px 10px; border-radius: 5px;"
+            >
+              <span style="color: #fff; font-size: 16px;">Men's</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Women's Section Slide -->
+        <div
+          class="swiper-slide"
+          style="flex-shrink: 0; width: 100%; max-width: 300px; display: flex; flex-direction: column; align-items: center; cursor: pointer;"
+          onclick="showLoaderAndRedirectToWomenSection()"
+        >
+          <div
+            style="width: 100%; max-width: 300px; height: 0; padding-bottom: 100%; overflow: hidden; position: relative; margin-bottom: 10px;"
+          >
+            <img
+              src="{% static 'women.jpeg' %}"
+              alt="Women's"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; display: block; object-fit: cover;"
+              data-no-retina=""
+            />
+            <div
+              style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.6); padding: 5px 10px; border-radius: 5px;"
+            >
+              <span style="color: #fff; font-size: 16px;">Women's</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tester Section Slide -->
+        <div
+          class="swiper-slide"
+          style="flex-shrink: 0; width: 100%; max-width: 300px; display: flex; flex-direction: column; align-items: center; cursor: pointer;"
+          onclick="showLoaderAndRedirectToTesterSection()"
+        >
+          <div
+            style="width: 100%; max-width: 300px; height: 0; padding-bottom: 100%; overflow: hidden; position: relative; margin-bottom: 10px;"
+          >
+            <img
+              src="{% static 'tester.png' %}"
+              alt="Tester"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; display: block; object-fit: cover;"
+              data-no-retina=""
+            />
+            <div
+              style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.6); padding: 5px 10px; border-radius: 5px;"
+            >
+              <span style="color: #fff; font-size: 16px;">Tester</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional CSS for better responsiveness -->
+    <style>
+      .swiper-wrapper {
+          gap: 20px;
+          /* Adjusted for better spacing */
+      }
+
+      @media (min-width: 768px) {
+          .swiper-slide {
+              width: 48%;
+              /* Two items per row on medium screens */
+          }
+      }
+
+      @media (min-width: 1024px) {
+          .swiper-slide {
+              width: 30%;
+              /* Three items per row on large screens */
+          }
+      }
+
+      @media (max-width: 767px) {
+          .swiper-slide {
+              width: 100%;
+              /* One item per row on small screens */
+          }
+      }
+    </style>
+
+    <section
+      id="technology"
+      class="background-position-center-top position-relative"
+      style="background-image: url('images/vertical-line-bg-medium-gray.svg')"
+    >
+      <div
+        id="particles-02"
+        data-particle="true"
+        data-particle-options='{"particles": {"number": {"value": 3,"density": {"enable": true,"value_area": 1000}},"color":{"value":["#ff5b74", "#820f89"]},"shape": {"type": "circle","stroke":{"width":0,"color":"#000000"}},"opacity": {"value": 0.7,"random": false,"anim": {"enable": false,"speed": 2,"sync": false}},"size": {"value": 7,"random": true,"anim": {"enable": false,"sync": true}},"move": {"enable": true,"speed":2,"direction": "right","random": false,"straight": false}},"interactivity": {"detect_on": "canvas","events": {"onhover": {"enable": false,"mode": "repulse"},"onclick": {"enable": false,"mode": "push"},"resize": true}},"retina_detect": false}'
+        class="position-absolute top-0px left-0px w-100 z-index-minus-1"
+      ></div>
+      <div class="container overlap-gap-section">
+        <div class="row">
+          <div class="col-lg-6 text-center">
+            <div
+              class="outside-box-left-25 lg-outside-box-left-20 md-outside-box-left-30 position-sticky top-140px"
+            >
+              <img
+                src="{% static 'BS Sensation.png' %}"
+                alt=""
+                data-bottom-top="transform: rotate(0.2deg) translateY(0)"
+                data-top-bottom="transform:rotate(-35deg) translateY(0)"
+              />
+              <span
+                class="fs-250 xl-fs-250 lg-fs-200 md-fs-275 xs-fs-200 text-gradient-dark-purple-watermelon fw-700 ls-minus-20px position-absolute top-100px d-block z-index-minus-1"
+                style="left: 260px; display: block;"
+                data-bottom-top="transform:scale(1, 1) translate3d(0px, 0px, 0px);"
+                data-top-bottom="transform:scale(1, 1) translate3d(-300px, 0px, 0px);"
+              >
+                Scent
+              </span>
+
+              <style>
+                @media screen and (max-width: 1024px) {
+                    span.fs-250 {
+                        display: none !important;
+                    }
+                }
+              </style>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-5 offset-lg-1 text-center text-lg-start"
+            data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 50, "staggervalue": 150, "easing": "easeOutQuad" }'
+          >
+            <div class="mb-15 mt-25 md-mb-5 md-mt-10">
+              <i
+                class="fa-solid fa-earth-americas align-middle icon-double-large mb-25px opacity-6"
+              ></i>
+              <span
+                class="fs-90 lg-fs-80 xs-fs-60 fw-800 text-dark-gray ls-minus-4px xs-ls-minus-2px d-block mb-25px"
+                >A World of Irresistible Scents</span
+              >
+              <p class="w-80 xl-w-90 lg-w-100 mb-35px">
+                Dive into the amazing variety of BS Sensation perfumes. From
+                zesty Citrus to cozy Amber, our collection has a scent for every
+                mood and occasion. Find your perfect match and let your
+                fragrance speak for you.
+              </p>
+            </div>
+            <div class="d-flex"></div>
+            <div class="mb-15 mt-25 md-mb-5 md-mt-10">
+              <i
+                class="fa-solid fa-forward-fast align-middle icon-double-large mb-25px opacity-6"
+              ></i>
+              <span
+                class="fs-90 lg-fs-80 xs-fs-60 fw-800 text-dark-gray ls-minus-4px xs-ls-minus-2px d-block mb-25px"
+                >Long-Lasting Scent</span
+              >
+              <p class="w-80 xl-w-90 lg-w-100 mb-35px">
+                Enjoy a scent that lasts all day with BS Sensation. Our perfumes
+                are designed to keep you smelling fresh and captivating without
+                needing frequent touch-ups.
+              </p>
+            </div>
+            <div class="d-flex"></div>
+            <div class="mb-15 mt-25 md-mb-5 md-mt-10">
+              <i
+                class="fa-solid fa-heart-circle-plus align-middle icon-double-large mb-25px opacity-6"
+              ></i>
+              <span
+                class="fs-90 lg-fs-80 xs-fs-60 fw-800 text-dark-gray ls-minus-4px xs-ls-minus-2px d-block mb-25px"
+                >Discover Your New Favorite</span
+              >
+              <p class="w-80 xl-w-90 lg-w-100 mb-35px">
+                Step into a world of unforgettable scents with BS Sensation.
+                Whether you’re drawn to bold notes or soft whispers, our
+                collection offers something for every style and occasion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="features"
+      class="bg-gradient-very-light-gray position-relative pb-2"
+    >
+      <div
+        class="background-position-center-top position-absolute top-0 left-0px w-100 h-100"
+        style="background-image: url('images/vertical-line-bg-medium-gray.svg')"
+      ></div>
+      <div class="container position-relative">
+        <div class="row justify-content-center mb-2">
+          <div
+            class="col-auto col-xxl-5 col-lg-7 col-sm-9 d-flex align-items-center justify-content-center"
+          >
+            <span
+              class="fs-180 text-gradient-dark-purple-watermelon flex-shrink-0 fw-800 me-35px ls-minus-10px sm-ls-minus-5px"
+              data-bottom-top="transform:scale(1.4, 1.4);"
+              data-top-bottom="transform:scale(1, 1);"
+              >06</span
+            >
+            <h2 class="text-dark-gray fw-800 ls-minus-3px m-0">
+              Exclusive Features
+            </h2>
+          </div>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-lg-3 row-cols-sm-2 justify-content-center mb-4"
+          data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'
+        >
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-solid fa-forward-fast icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >Unforgettable Scents, All Day Long</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  BS Sensation believes fragrance makes statement. Our perfumes
+                  are meticulously crafted to leave a lasting impression, with
+                  scents that linger beautifully from morning till night.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-regular fa-face-laugh-beam icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >A Fragrance for Every Mood</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  Explore a world of scent possibilities with BS Sensation.
+                  Whether you’re drawn to the freshness of citrus, the warmth of
+                  woody notes, or the allure of oriental spices, we have a
+                  fragrance to match every mood and occasion.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-regular fa-gem icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >Luxury in Every Drop</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  We spare no expense when it comes to quality. BS Sensation
+                  perfumes are made with premium ingredients, ensuring a smooth
+                  and luxurious fragrance experience that’s as rich as it is
+                  refined.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-solid fa-user-tie icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >Designed for Elegance</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  Our perfumes don’t just smell exquisite—they look the part
+                  too. Encased in beautifully designed bottles, BS Sensation
+                  perfumes are the perfect blend of style and substance,
+                  designed to fit seamlessly into your lifestyle.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-solid fa-car icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >Secure and Travel-Friendly</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  With BS Sensation, your fragrance is always safe. Our perfumes
+                  come in sleek, leak-proof bottles that are perfect for tossing
+                  in your bag for those essential touch-ups throughout the day.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col icon-with-text-style-03">
+            <div class="feature-box p-8">
+              <div class="feature-box-icon">
+                <i
+                  class="fa-solid fa-dove icon-double-large text-dark-gray mb-20px"
+                ></i>
+              </div>
+              <div class="feature-box-content last-paragraph-no-margin">
+                <span
+                  class="d-inline-block fw-700 text-dark-gray mb-5px fs-19 ls-minus-05px"
+                  >Convenience without Compromise</span
+                >
+                <p class="w-85 lg-w-100 mx-auto">
+                  Whether you’re at home or on the go, BS Sensation has you
+                  covered. Choose from our range of full-sized bottles for your
+                  dressing table or travel-sized options for your adventures,
+                  all without sacrificing the quality you deserve.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row justify-content-center align-items-center"
+          data-anime='{ "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'
+        >
+          <div class="col-12 text-center">
+            <div
+              class="d-inline-block align-middle fs-12 ls-05px fw-600 text-white text-uppercase bg-green border-radius-50px ps-20px pe-20px me-10px sm-m-5px"
+            >
+              BS Sensation
+            </div>
+            <div
+              class="d-inline-block align-middle text-dark-gray fw-500 fs-20 ls-minus-05px"
+            >
+              Experience the Essence of
+              <span class="text-decoration-line-bottom fw-700">Elegance.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="background-position-center-top pt-0"
+      style="background-image: url('images/vertical-line-bg-medium-gray.svg')"
+    >
+      <div class="container-fluid">
+        <div class="row position-relative">
+          <div
+            class="col swiper swiper-width-auto text-center pb-20px md-pb-20px feather-shadow"
+            data-slider-options='{ "slidesPerView": "auto", "spaceBetween":70, "speed": 14000, "loop": true, "allowTouchMove": false, "autoplay": { "delay":0, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'
+          >
+            <div class="swiper-wrapper marquee-slide">
+              <div class="swiper-slide">
+                <div class="fs-90 text-dark-gray fw-700 ls-minus-4px alt-font">
+                  Exclusive.
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="fs-90 text-dark-gray opacity-5 fw-700 ls-minus-4px alt-font"
+                >
+                  Elegant Scents.
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="fs-90 text-dark-gray fw-700 ls-minus-4px alt-font">
+                  Long-Lasting Freshness.
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="fs-90 text-dark-gray opacity-5 fw-700 ls-minus-4px alt-font"
+                >
+                  Signature Fragrances.
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="fs-90 text-dark-gray fw-700 ls-minus-4px alt-font">
+                  Luxurious Quality.
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="fs-90 text-dark-gray opacity-5 fw-700 ls-minus-4px alt-font"
+                >
+                  Refined Quality.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-dark-gray-01 p-35px">
+      <div class="container">
+        <div
+          class="row justify-content-center align-items-center"
+          data-anime='{ "el": "childs", "translateX": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'
+        >
+          <div class="col-lg-1 p-0">
+            <div
+              class="divider-style-03 divider-style-03-01 border-color-transparent-white-very-light md-mb-15px"
+            ></div>
+          </div>
+          <div
+            class="col-xl-7 col-lg-9 position-relative text-center last-paragraph-no-margin"
+          >
+            <p
+              class="fs-16 fw-600 text-uppercase ls-1px d-inline-block align-middle lh-normal"
+            >
+              Discover Exquisite Perfumes at BS Sensation
+            </p>
+          </div>
+          <div class="col-lg-1 p-0">
+            <div
+              class="divider-style-03 divider-style-03-01 border-color-transparent-white-very-light md-mt-15px"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="review"
+      class="background-position-center-top"
+      style="background-image: url('images/vertical-line-bg-medium-gray.svg')"
+    >
+      <div class="container">
+        <div class="row justify-content-center mb-1">
+          <div class="col-xl-7 col-lg-9 col-md-10 text-center">
+            <h2 class="h1 fw-800 text-dark-black">
+              Loved by most valuable customers
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-12 text-center"
+            data-anime='{ "rotateX": [-40, 0], "opacity": [0,1], "duration": 1200, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'
+          >
+            <div
+              class="swiper swiper-horizontal-3d pt-8 pb-5 lg-pt-10 lg-pb-10 md-pt-12 sm-pt-21 sm-pb-11 swiper-pagination-bottom testimonials-style-04"
+              data-slider-options='{ "loop": true, "slidesPerView": 1,"centeredSlides":true,"effect":"coverflow","coverflowEffect":{"rotate":0,"stretch":100,"depth":150,"modifier":1.5,"slideShadows":true}, "navigation": { "nextEl": ".swiper-button-next-nav.slider-navigation-style-04", "prevEl": ".swiper-button-previous-nav.slider-navigation-style-04" }, "autoplay": { "delay": 5000, "disableOnInteraction": false }, "pagination": { "el": ".swiper-pagination-04", "clickable": true, "dynamicBullets": true }, "breakpoints": { "768": { "slidesPerView": 2 } } }'
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Ali Hassan.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >A Fragrance That Lasts All Day</span
+                      >
+                      <p class="mb-25px">
+                        The scents from BS Sensation are fantastic! They last
+                        all day and leave a lasting impression. Highly
+                        recommend!
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Ali Hassan
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Fatima Khan.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >A True Delight for the Senses</span
+                      >
+                      <p class="mb-25px">
+                        I am absolutely delighted with the perfumes I bought.
+                        The quality is unmatched, and the service was
+                        exceptional
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Fatima Khan
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Omar Ahmed.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >An Elegant Choice for Any Occasion</span
+                      >
+                      <p class="mb-25px">
+                        BS Sensation offers a range of elegant fragrances
+                        perfect for any occasion. I’m impressed with their
+                        collection!
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Omar Ahmed
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Aisha Malik.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >The Best Fragrance Experience</span
+                      >
+                      <p class="mb-25px">
+                        Shopping at BS Sensation has been a wonderful
+                        experience. Their perfumes are divine and the service is
+                        top-notch
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Aisha Malik
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Ahmed Shah.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >A Signature Scent for Every Personality</span
+                      >
+                      <p class="mb-25px">
+                        I found my signature scent at BS Sensation. The variety
+                        is incredible, and I love how personalized the
+                        experience is.
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Ahmed Shah
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Usman Tariq.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >Simply Outstanding Fragrances</span
+                      >
+                      <p class="mb-25px">
+                        I’ve never experienced such outstanding fragrances. BS
+                        Sensation truly lives up to its name with their quality
+                        and service
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Usman Tariq
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide bg-white border-radius-4px">
+                  <div
+                    class="position-relative ps-13 pe-13 md-ps-10 md-pe-10 sm-ps-7 sm-pe-7 pt-20 pb-10 lg-pt-22 md-pt-30 sm-pt-20"
+                  >
+                    <img
+                      alt=""
+                      src="{% static 'Sila Raza.png' %}"
+                      class="absolute-middle-center top-0px rounded-circle w-150px xs-w-100px border border-color-white box-shadow-extra-large border-8"
+                    />
+                    <div class="testimonials-content">
+                      <span
+                        class="text-dark-gray fs-18 lh-30 fw-600 mb-5px d-block"
+                        >Perfect Gift for Any Occasion</span
+                      >
+                      <p class="mb-25px">
+                        I bought a perfume as a gift, and it was perfect. The
+                        presentation and fragrance made it a memorable gift, and
+                        i have ordered only one as a present but now i have to
+                        buy it for all of my family
+                      </p>
+                    </div>
+                    <div
+                      class="testimonials-author fs-19 mb-5px text-gradient-dark-purple-watermelon fw-700 d-inline-block"
+                    >
+                      Sila Raza
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-12 text-center"
+              data-anime='{ "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'
+            >
+              <div
+                class="text-center bg-dark-gray text-white fs-16 lh-36 border-radius-30px d-inline-block ps-20px pe-20px align-middle me-10px mt-10px mb-10px"
+              >
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <h6
+                class="text-dark-gray fw-400 mb-0 d-inline-block align-middle ls-minus-1px"
+              >
+                Rated <span class="fw-700">5</span> stars by clients
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="paragraph"
+      style="margin-left: 20px; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; max-width: 1200px; margin-right: auto; margin-left: auto;"
+    >
+      <h2
+        style="font-size: 2rem; color: #333; margin-bottom: 20px; text-align: center;"
+      >
+        BS Sensation Perfumes: Elevate Your Essence with Luxurious Scents
+      </h2>
+      <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
+        BS Sensation Perfumes has quickly captured the hearts of fragrance
+        enthusiasts by bringing an unmatched collection of premium, long-lasting
+        scents designed to captivate the senses. Our commitment is to offer a
+        luxurious experience that redefines the way you perceive and wear
+        perfumes. Whether you're preparing for a pivotal business meeting, an
+        elegant evening gala, or simply seeking an uplifting everyday scent, we
+        have the perfect blend crafted just for you. Our range spans countless
+        notes and aromas, ensuring there's a fragrance tailored for every
+        personality, mood, and occasion.
+      </p>
+
+      <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
+        At BS Sensation, we understand that a great scent does more than
+        complement an outfit—it tells a story, sparks confidence, and creates
+        unforgettable memories. This is why we dedicate ourselves to producing
+        high-concentration perfumes, rivaling the finest names in the fragrance
+        world, but at prices that remain accessible without compromising on
+        quality. Our carefully curated collection combines classic elements with
+        modern flair, offering floral, woody, citrus, oriental, and bespoke
+        blends that resonate with diverse tastes.
+      </p>
+
+      <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
+        Our customers enjoy a seamless experience, with every detail crafted to
+        guide them in selecting their perfect fragrance. From detailed scent
+        descriptions and transparent ingredient listings to personalized
+        recommendations and user-friendly filters, shopping with BS Sensation is
+        as satisfying as the products themselves. We believe in empowering
+        customers to make informed choices, providing information that allows
+        them to explore, compare, and find scents that reflect their unique
+        identities.
+      </p>
+
+      <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
+        The satisfaction of our customers remains our priority. That's why, if a
+        scent doesn’t quite meet your expectations, our flexible return and
+        exchange policy ensures your peace of mind. We stand behind every
+        bottle, and our reputation for excellence is built on this trust and
+        dedication.
+      </p>
+
+      <p style="font-size: 1rem; color: #555; margin-bottom: 20px;">
+        BS Sensation Perfumes isn’t just about products; it’s about creating an
+        experience—one where elegance, luxury, and individuality blend
+        seamlessly. Elevate your essence with a scent that reflects who you are
+        and leaves an unforgettable impression on everyone you meet. Find your
+        signature scent with us today, and embrace a new world of sophisticated
+        fragrances designed to complement every facet of your life.
+      </p>
+    </section>
+
+    <section id="pricing" class="bg-gradient-very-light-gray">
+      <div class="container">
+        <div class="row justify-content-center mb-4">
+          <div class="col-xl-7 col-lg-9 text-center">
+            <h2 class="h1 fw-800 text-dark-black">
+              Choose the perfect product for you
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="row justify-content-center mt-6 sm-mt-11"
+          data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'
+        >
+          <div class="col-md-4 p-0">
+            <a
+              href="#purchase"
+              class="btn btn-gradient-purple-pink w-100 fs-30 border-0 p-7 sm-p-5 fw-700 text-uppercase-inherit"
+              >Purchase now</a
+            >
+          </div>
+          <div class="col-12 mt-30px">
+            <ul
+              class="list-style-05 text-center text-uppercase ls-1px fs-16 fw-500"
+            >
+              <li>Enjoy</li>
+              <li>Complimentary</li>
+              <li>Free delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+  
+  
+  
+
+
+
+    <footer class="py-4 bg-light">
+      <div class="container">
+        <div class="row justify-content-between align-items-start">
+          <!-- Contact Information -->
+          <div class="col-md-4 col-sm-12 mb-4 mb-md-0">
+            <div class="contact-info">
+              <span class="fs-19 d-block font-weight-bold text-dark mb-3"
+                >Let's Talk With Us</span
+              >
+              <h6 class="fw-700 mb-3">
+                <a
+                  href="tel:+923161124655"
+                  class="text-dark d-flex align-items-center"
+                >
+                  <i class="fa-solid fa-phone-volume me-2 text-gray fs-20"></i>
+                  +92 316 1124655
+                </a>
+              </h6>
+              <span class="fs-19 mt-4 d-block font-weight-bold text-dark"
+                >Our Address</span
+              >
+              <p class="text-dark mb-3">
+                <i class="fa-solid fa-location-dot me-2 text-gray fs-20"></i>
+                F-195 Jahangir Road West, Karachi
+              </p>
+              <span class="fs-19 mt-4 d-block font-weight-bold text-dark"
+                >Return Policy</span
+              >
+              <p class="text-dark mb-0">
+                At <strong>BS Sensation</strong>, you can return any perfume
+                within <strong>15 days</strong> of purchase.
+              </p>
+            </div>
+          </div>
+
+          <!-- Customer Care Information -->
+          <div class="col-md-4 col-sm-12 text-center text-md-end">
+            <span class="fs-19 d-block mb-2">Get Customer Care</span>
+            <h6 class="fw-700 mb-0">
+              <a
+                href="mailto:support@bssensation.com"
+                class="text-dark text-decoration-none"
+                >support@bssensation.com</a
+              >
+            </h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      footer {
+          background-color: #f8f9fa;
+      }
+      .contact-info {
+          padding: 1rem;
+      }
+      .text-dark {
+          color: #000 !important;
+      }
+      .text-gray {
+          color: #6c757d;
+      }
+      h6 a {
+          text-decoration: none;
+          transition: color 0.2s;
+      }
+      h6 a:hover {
+          color: #007bff;
+      }
+      @media (max-width: 768px) {
+          .contact-info, .col-md-4 {
+              text-align: center;
+          }
+          .text-md-end {
+              text-align: center !important;
+          }
+      }
+      @media (max-width: 576px) {
+          .contact-info {
+              padding: 0.5rem;
+          }
+          .fs-19 {
+              font-size: 16px;
+          }
+          .fw-700 {
+              font-weight: 600;
+          }
+      }
+    </style>
+
+    <footer
+      class="pt-25px pb-25px border-top border-color-extra-medium-gray fs-16"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 md-mb-10px text-center text-lg-start">
+            <ul class="footer-navbar lh-normal">
+              <li class="nav-item">
+                <a href="#overview" class="inner-link nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#purchase" class="inner-link nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="#design" class="inner-link nav-link">Design</a>
+              </li>
+              <li class="nav-item">
+                <a href="#review" class="inner-link nav-link">Review</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pricing" class="inner-link nav-link">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="inner-link nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="col-lg-5 last-paragraph-no-margin text-center text-lg-end"
+          >
+            <p>
+              © Sponsered By
+              <a
+                href="https://www.elitechain.co/"
+                target="_blank"
+                class="text-decoration-line-bottom text-dark-gray fw-600"
+              >
+                Elitechain LLC</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-progress d-none d-xxl-block">
+      <a href="#" class="scroll-top" aria-label="scroll">
+        <span class="scroll-text">Scroll</span
+        ><span class="scroll-line"><span class="scroll-point"></span></span>
+      </a>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/vendors.min.js' %}"
+    ></script>
+    <script>
+      // Function to add a product to the cart
+
+
+      // Function to update the cart count display
+      function updateCartCount() {
+          fetch('Admin/cart_count.php')
+              .then(response => {
+                  return response.json();
+              })
+              .then(data => {
+                  const cartCountElement = document.getElementById('cart-count');
+                  if (cartCountElement) {
+                      cartCountElement.textContent = `Cart (${data.cart_count})`;
+                  }
+              })
+              .catch(error => console.error('Fetch Error:', error));
+      }
+
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+          updateCartCount(); // Ensure the cart count is updated after DOM is loaded
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* https://learn.jquery.com/using-jquery-core/document-ready/ */
+      jQuery(document).ready(function() {
+
+          /* initialize the slider based on the Slider's ID attribute from the wrapper above */
+          jQuery('#rev_slider_31_1').show().revolution({
+
+              /* options are 'auto', 'fullwidth' or 'fullscreen' */
+              sliderLayout: 'fullwidth',
+              /* sets the Slider's default timeline */
+              delay: 9000,
+              /* options that disable autoplay */
+              stopLoop: "off",
+              stopAfterLoops: 0,
+              stopAtSlide: 1,
+              /* Lazy Load options are "all", "smart", "single" and "none" */
+              lazyType: "smart",
+              spinner: "spinner0",
+              responsiveLevels: [1240, 1024, 778, 480],
+              /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+              gridwidth: [1190, 1024, 778, 480],
+              /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+              gridheight: [1250, 920, 1000, 650],
+              /* Lazy Load options are "all", "smart", "single" and "none" */
+              lazyType: "none",
+              parallax: {
+                  type: "mouse+scroll",
+                  origo: "slidercenter",
+                  speed: 400,
+                  speedbg: 1500,
+                  speedls: 1000,
+                  levels: [5, 10, 15, 20, 25, 30, 35, 40, 60, 46, -10, -15, -20, -25, -30, 55],
+              },
+          });
+      });
+    </script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-DND93RJKBT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-DND93RJKBT');
+    </script>
+    <script>
+      function showLoaderAndRedirect(productId) {
+          // Show the loader
+          document.getElementById('loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.2 seconds
+          setTimeout(function() {
+              document.getElementById('loader-overlay').style.display = 'none'; // Hide the loader
+              window.location.href = 'Admin/product_page.php?id=' + productId; // Redirect to the product page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+    <script>
+      function showLoaderAndRedirect(productId) {
+          // Show the loader
+          document.getElementById('loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.2 seconds
+          setTimeout(function() {
+              document.getElementById('loader-overlay').style.display = 'none'; // Hide the loader
+              window.location.href = 'Admin/product_page.php?id=' + productId; // Redirect to the product page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      function showLoaderAndRedirectToMenSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'men_section.php'; // Redirect to the men section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      function showLoaderAndRedirectToWomenSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay-women').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'women_section.php'; // Redirect to the women section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+    <script>
+      function showLoaderAndRedirectToTesterSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay-tester').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'tester_section.php'; // Redirect to the tester section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      $(document).ready(function() {
+          // On form submit
+          $('#search-form').on('submit', function(e) {
+              e.preventDefault(); // Prevent the default form submission
+
+              // Get the search input value
+              let searchQuery = $('#search-input').val();
+
+              // Perform AJAX request
+              $.ajax({
+                  url: 'search_tester.php', // Your PHP file
+                  type: 'GET',
+                  data: {
+                      search: searchQuery
+                  }, // Send the search query
+                  success: function(data) {
+                      $('#searchResults')[0].scrollIntoView({
+                          behavior: 'smooth'
+                      });
+
+                      // Display the results in the search-results div
+                      $('.custom-product-listing').html(data);
+                  },
+                  error: function() {
+                      $('#search-results').html('<p>An error occurred while searching.</p>');
+                  }
+              });
+          });
+
+          // Check if there's a search query in the URL and submit the form
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.has('search')) {
+              $('#search-input').val(urlParams.get('search')); // Set input value
+              $('#search-form').submit(); // Trigger the search
+          }
+      });
+    </script>
+  </body>
+</html>

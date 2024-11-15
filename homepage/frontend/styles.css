@@ -1,0 +1,123 @@
+/* Navbar styling */
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.loved-by-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.loved-by-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.image-grid img {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .image-grid img {
+        width: 80px;
+        height: 80px;
+    }
+    .loved-by-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* General Styling */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Full Oval Search Bar */
+
+.search-bar {
+    max-width: 300px;
+    display: flex;
+    border-radius: 50px;
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    padding-left: 15px;
+    flex-grow: 1;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    font-size: 1.2rem;
+}
+
+/* Adjust Account and Cart section */
+
+.d-flex .me-2 {
+    font-size: 1.2rem;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 200px;
+    }
+    .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .d-flex a {
+        margin-top: 10px;
+    }
+    .navbar-brand {
+        margin: 0 auto;
+    }
+    .navbar-brand img {
+        width: 120px;
+        height: auto;
+        filter: drop-shadow(2px 2px 3px rgba(255, 255, 255, 0.5));
+        /* Adds a light shadow to improve contrast */
+    }
+}

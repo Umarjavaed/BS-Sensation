@@ -1,0 +1,594 @@
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar toggle button lines */
+
+.navbar-toggler-line {
+    background-color: black;
+    width: 22px;
+    height: 2px;
+    margin: 3px 0;
+}
+
+.contact-info {
+    color: black;
+    line-height: 1.6;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: black;
+    /* Ensure text color is black */
+}
+
+.contact-info a:hover {
+    color: black;
+    /* Keep text black on hover */
+}
+
+.contact-info i {
+    color: gray;
+    /* Icon color set to gray */
+}
+
+.fs-19 {
+    font-size: 19px;
+}
+
+@media (max-width: 576px) {
+    .fs-19 {
+        font-size: 16px;
+        /* Slightly smaller font size for mobile */
+    }
+    .fs-20 {
+        font-size: 18px;
+        /* Adjust icon size for mobile */
+    }
+    .fw-700 {
+        font-weight: 600;
+        /* Slightly lighter font weight for mobile readability */
+    }
+    .mb-3 {
+        margin-bottom: 1rem;
+        /* Adjust margin for better spacing on mobile */
+    }
+    .me-2 {
+        margin-right: 0.3rem;
+        /* Smaller spacing for icons on mobile */
+    }
+}
+
+/* Adjust navbar in mobile view */
+
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        /* Fix the navbar at the top */
+        top: 0;
+        width: 100%;
+    }
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.9);
+        /* Add background to expanded navbar */
+        position: absolute;
+        top: 56px;
+        /* Position the collapse below the navbar */
+        width: 100%;
+        z-index: 1020;
+        /* Ensure it appears above other elements */
+    }
+    /* Ensure content below doesn't move when the navbar opens */
+    .navbar-nav {
+        padding-top: 15px;
+    }
+    /* Make sure banner remains below the navbar */
+    .banner {
+        margin-top: 56px;
+        /* Ensure banner stays below fixed navbar */
+    }
+}
+
+.custom-product-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* .custom-product-frame {
+flex: 1 1 calc(25% - 20px);
+max-width: 300px;
+min-width: 200px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+padding: 15px;
+box-sizing: border-box;
+margin: 10px;
+} */
+
+.custom-product-frame {
+    width: 30%;
+    margin: 10px;
+    float: left;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.custom-product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.custom-product-name,
+.custom-product-description,
+.custom-product-price {
+    margin: 10px 0;
+}
+
+.custom-add-to-cart {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile Styles - adjust layout for screens smaller than 768px */
+
+@media only screen and (max-width: 768px) {
+    .custom-product-frame {
+        width: 100%;
+        margin: 0 0 20px 0;
+        float: none;
+    }
+    .custom-product-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .custom-product-image {
+        width: 80%;
+        /* Make images smaller on mobile */
+        margin-bottom: 10px;
+    }
+    .custom-product-name,
+    .custom-product-description,
+    .custom-product-price {
+        text-align: center;
+        /* Center-align text */
+    }
+    .custom-add-to-cart {
+        width: 100%;
+        /* Full-width button on mobile */
+        padding: 12px;
+    }
+}
+
+.custom-product-box {
+    text-align: center;
+    position: relative;
+}
+
+.primary-image {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.secondary-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.custom-product-box:hover .primary-image {
+    opacity: 0;
+}
+
+.custom-product-box:hover .secondary-image {
+    opacity: 1;
+}
+
+.custom-product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.custom-product-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+    min-height: 50px;
+    /* Adjust to ensure equal height for all product descriptions */
+}
+
+.custom-product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Pushes the container to the bottom */
+    height: 50px;
+}
+
+.custom-add-to-cart {
+    background-color: skyblue;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.custom-product-frame {
+    position: relative;
+    /* Ensure the loader is positioned relative to this container */
+}
+
+#loader-overlay {
+    position: fixed;
+    /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background */
+    display: none;
+    /* Hidden by default */
+    z-index: 9999;
+    /* High z-index to ensure it covers everything */
+    text-align: center;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgb(0 0 0 / 50%) 30%, #0000 0 70%, rgb(0 0 0 / 100%) 0) 50% / 8% 100%, linear-gradient(90deg, rgb(0 0 0 / 25%) 30%, #0000 0 70%, rgb(0 0 0 / 75%) 0) 50% / 100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.loader::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+@keyframes l23 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+#custom-loader-overlay {
+    position: fixed;
+    /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background */
+    display: none;
+    /* Hidden by default */
+    z-index: 9999;
+    /* High z-index to ensure it covers everything */
+    text-align: center;
+}
+
+.custom-loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgb(0 0 0 / 50%) 30%, #0000 0 70%, rgb(0 0 0 / 100%) 0) 50% / 8% 100%, linear-gradient(90deg, rgb(0 0 0 / 25%) 30%, #0000 0 70%, rgb(0 0 0 / 75%) 0) 50% / 100% 8%;
+    background-repeat: no-repeat;
+    animation: custom-l23 1s infinite steps(12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-loader::before,
+.custom-loader::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.custom-loader::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+@keyframes custom-l23 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+/* Full-screen loader styles */
+
+#custom-loader-overlay-women {
+    position: fixed;
+    /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background */
+    display: none;
+    /* Hidden by default */
+    z-index: 9999;
+    /* High z-index to ensure it covers everything */
+    text-align: center;
+}
+
+.custom-loader-women {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgb(0 0 0 / 50%) 30%, #0000 0 70%, rgb(0 0 0 / 100%) 0) 50% / 8% 100%, linear-gradient(90deg, rgb(0 0 0 / 25%) 30%, #0000 0 70%, rgb(0 0 0 / 75%) 0) 50% / 100% 8%;
+    background-repeat: no-repeat;
+    animation: custom-l23-women 1s infinite steps(12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-loader-women::before,
+.custom-loader-women::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.custom-loader-women::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+@keyframes custom-l23-women {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+#custom-loader-overlay-tester {
+    position: fixed;
+    /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background */
+    display: none;
+    /* Hidden by default */
+    z-index: 9999;
+    /* High z-index to ensure it covers everything */
+    text-align: center;
+}
+
+.custom-loader-tester {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgb(0 0 0 / 50%) 30%, #0000 0 70%, rgb(0 0 0 / 100%) 0) 50% / 8% 100%, linear-gradient(90deg, rgb(0 0 0 / 25%) 30%, #0000 0 70%, rgb(0 0 0 / 75%) 0) 50% / 100% 8%;
+    background-repeat: no-repeat;
+    animation: custom-l23-tester 1s infinite steps(12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-loader-tester::before,
+.custom-loader-tester::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.custom-loader-tester::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+@keyframes custom-l23-tester {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+@media (max-width: 576px) {
+    .mobile-cart-container {
+        margin-top: 40px;
+        /* Adjust the top margin for mobile view */
+    }
+}
+
+/* Center logo at the top */
+
+.top-header {
+    background-color: white;
+    /* Optional background color */
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: auto;
+}
+
+/* Styling the navbar */
+
+.navbar {
+    background-color: white;
+    /* Navbar background color */
+    border-top: 1px solid #ddd;
+    /* Optional border to separate navbar */
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+    /* Hover color for links */
+}
+
+.btn {
+    background-color: black;
+    /* Button styling */
+    color: white;
+}
+
+/* Make sure the navbar aligns in the center */
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+/* Adjust the search form */
+
+.custom-search-bar {
+    max-width: 300px;
+    /* Ensure search form doesn't disturb layout */
+    margin-right: 20px;
+    /* Adds spacing on the right */
+}
+
+.custom-search-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}
+
+.banner-container {
+    width: 100%;
+    max-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Form container styling */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Input field styling */
+
+#search-input {
+    width: 80%;
+    max-width: 500px;
+    padding-right: 40px;
+    /* Space for the icon */
+    border-radius: 20px;
+    border: none !important;
+    outline: none !important;
+    transition: all 0.3s ease;
+}
+
+/* Button styling to appear inside the input */
+
+#search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+}
+
+.myForm {
+    width: 20%;
+}
+
+/* Mobile specific styling */
+
+@media (max-width: 768px) {
+    #search-input {
+        width: 100%;
+        max-width: 100%;
+    }
+    .myForm {
+        width: 70% !important;
+    }
+}

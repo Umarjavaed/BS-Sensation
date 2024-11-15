@@ -1,0 +1,1531 @@
+{% load static %}
+<html class="no-js" lang="en">
+  <head>
+    <title>BS Sensation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Elitechain" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="BS-Sensation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styless.css' %}" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="shortcut icon" href="{% static 'logo1.png' %}" />
+    <link rel="apple-touch-icon" href="{% static 'logo1.png' %}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="{% static 'logo1.png' %}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="{% static 'logo1.png' %}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/settings.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/layers.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'revolution/css/navigation.css' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/vendors.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'demos/product-showcase/product-showcase.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+  </head>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    .product-page-wrapper {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap;
+    }
+
+    .product-image-container {
+        flex: 1;
+        margin-right: -100px;
+        position: relative;
+    }
+
+    #main-product-image {
+        width: 100%;
+        height: 500px;
+        border-radius: 8px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .thumbnail-container img {
+        width: 20%;
+        margin-right: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    /* Product Details Styling */
+    .product-info-container {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .product-info-container h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .rating-info {
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .price-info {
+        font-size: 24px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .original-product-price {
+        text-decoration: line-through;
+        color: #888;
+        margin-right: 10px;
+    }
+
+    .discounted-product-price {
+        color: #e60000;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .product-attributes {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .product-attributes li {
+        margin-bottom: 5px;
+    }
+
+    /* Quantity and Size Selectors */
+    .quantity-selection-container,
+    .size-selection-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .quantity-selection-container button,
+    .size-selection-container button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        cursor: pointer;
+    }
+
+    .quantity-selection-container input {
+        width: 40px;
+        text-align: center;
+    }
+
+    /* Button Styling */
+    .add-to-cart-button,
+    .buy-now-button {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    .add-to-cart-button {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .buy-now-button {
+        background-color: rgb(130, 27, 210);
+        color: #fff;
+    }
+
+    /* Accordion Section */
+    .product-accordion-container {
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+    }
+
+    .product-accordion-container button {
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .product-accordion-container div {
+        display: none;
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Social Links Styling */
+    .social-media-links-container {
+        margin-top: 20px;
+    }
+
+    .social-media-links-container a {
+        text-decoration: none;
+        font-size: 24px;
+        margin-right: 15px;
+        color: #555;
+    }
+
+    .social-media-links-container a:hover {
+        color: #e60000;
+    }
+
+    /* Modal (Full Image Popup) */
+    .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content-container {
+        max-width: 80%;
+        max-height: 80%;
+        margin: auto;
+        border-radius: 8px;
+    }
+
+    .modal-close-button {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .modal-close-button:hover,
+    .modal-close-button:focus {
+        color: #e60000;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .product-page-wrapper {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .product-image-container {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+
+        #main-product-image {
+            height: 350px;
+        }
+
+        .thumbnail-container img {
+            width: 30%;
+            margin-right: 10px;
+        }
+
+        .product-info-container h1 {
+            font-size: 24px;
+        }
+
+        .rating-info,
+        .price-info {
+            font-size: 18px;
+        }
+
+        .quantity-selection-container,
+        .size-selection-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .quantity-selection-container button,
+        .size-selection-container button {
+            width: 50px;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .add-to-cart-button,
+        .buy-now-button {
+            padding: 12px;
+        }
+
+        .product-accordion-container button {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .product-page-wrapper {
+            padding: 10px;
+        }
+
+        .thumbnail-container img {
+            width: 45%;
+        }
+
+        #main-product-image {
+            height: 300px;
+        }
+
+        .product-info-container h1 {
+            font-size: 20px;
+        }
+
+        .rating-info,
+        .price-info {
+            font-size: 16px;
+        }
+
+        .quantity-selection-container input {
+            width: 30px;
+        }
+    }
+  </style>
+  <body data-mobile-nav-style="classic">
+    
+    <div
+      class="container-fluid d-flex justify-content-between align-items-center py-3"
+    >
+      <!-- Search Bar on the Left -->
+      <form
+        class="d-flex search-bar align-items-center position-relative w-md-auto myForm"
+        id="search-form"
+        action=""
+        method="GET"
+      >
+        {% csrf_token %}
+        <input
+          class="form-control"
+          type="search"
+          id="search-input"
+          name="search"
+          placeholder="Search for tester"
+          aria-label="Search"
+        />
+        <button class="btn" type="submit" id="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <div id="search-results" class="search-results"></div>
+
+      <!-- Centered Logo -->
+      <a class="navbar-brand mx-auto" href="#">
+        <img src="{% static 'logo1.png' %}" alt="Logo" width="80" height="80" />
+        <!-- Logo size adjusted -->
+      </a>
+
+      <!-- Account and Cart Section on the Right -->
+      <div class="d-flex align-items-center">
+        <a
+          href="#purchase"
+          class="btn btn-very-small left-icon btn-rounded btn-box-shadow btn-switch-text btn-dark-gray section-link"
+        >
+          <span>
+            <span class="d-none d-xl-inline-block"
+              ><i class="bi bi-bag-check fs-16"></i
+            ></span>
+            <span class="btn-double-text" data-text="Order now">Order now</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <nav
+      class="navbar navbar-expand-lg header-light bg-transparent glass-effect"
+      data-header-hover="light"
+    >
+      <div class="container-fluid">
+        <div class="col-auto col-lg-2 me-lg-0 me-auto">
+          <!-- Main logo in the navbar area -->
+        </div>
+
+        <div class="col-auto menu-order position-static">
+          <button
+            class="navbar-toggler float-start"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#overview" class="inner-link nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#purchase" class="inner-link nav-link">Products</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pricing" class="inner-link nav-link">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="inner-link nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Order Now Button -->
+        <div class="col-auto col-lg-2 text-end d-none d-sm-flex">
+          <div class="header-icon">
+            <div class="header-button">
+              <a
+                href="Admin/cart_page.php"
+                class="btn btn-very-small left-icon btn-rounded btn-box-shadow btn-dark-gray section-link"
+                style="background-color:black; display: flex; justify-content: flex-end;"
+              >
+                <span>
+                  <span class="d-none d-md-inline-block">
+                    <i
+                      class="fa-solid fa-bag-shopping fs-16"
+                      style="color: white;"
+                    ></i>
+                  </span>
+                  <span
+                    id="cart-count"
+                    class="btn-double-text"
+                    style="color:white;"
+                  >
+                    Cart (0)
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- order now button -->
+
+    <!-- order now button -->
+
+    <!-- order now button -->
+
+    <section
+      id="home"
+      class="p-0 ipad-top-space-margin"
+      style="background-image: url(images/demo-product-showcase-rev-slider-02.jpg);"
+    >
+      <article class="content">
+        <div
+          id="rev_slider_31_1_wrapper"
+          class="rev_slider_wrapper fullwidthbanner-container"
+        >
+          <div
+            id="rev_slider_31_1"
+            class="rev_slider fullwidthabanner"
+            data-version="5.4.5"
+          >
+            <ul>
+              <li
+                data-index="rs-73"
+                data-transition="fade"
+                data-slotamount="default"
+                data-hideafterloop="0"
+                data-hideslideonmobile="off"
+                data-easein="default"
+                data-easeout="default"
+                data-masterspeed="300"
+                data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/"
+                data-rotate="0"
+                data-saveperformance="off"
+                data-title="Slide"
+                data-param1="01"
+                data-description=""
+              >
+                <img
+                  src="{% static 'images/rev-trans-tile.png' %}"
+                  alt="dummy"
+                  class="rev-slidebg"
+                  data-bgparallax="6"
+                />
+
+                <div
+                  class="tp-caption tp-resizeme alt-font rs-parallaxlevel-2"
+                  style="background: -webkit-linear-gradient(0deg, #0099ff 15%, #1543da 65%, #16c3da 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
+                  id="slide-layer-1"
+                  data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"sX:1.3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-fontsize="['346','250','200','120']"
+                  data-lineheight="['450','360','300','200']"
+                  data-fontweight="['700','700', '700','700']"
+                  data-color="['#FFF','#FFF', '#000', '#000']"
+                  data-textalign="['center','center','center','center']"
+                  data-letterspacing="['-24','-15','-10','-8']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-140','0','-100','-60']"
+                  data-width="['auto', 'auto', 'auto', 'auto']"
+                  data-height="['auto', 'auto', 'auto', 'auto']"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                >
+                  Plus 3000
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme rs-parallaxlevel-1"
+                  id="slide-layer-12"
+                  data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Linear"},
+                                     {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Linear"}]'
+                  data-type="image"
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-100','0','-50','0']"
+                  data-width="['1126','900','800','600']"
+                  data-height="['auto','auto','auto','auto']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                >
+                  <img
+                    src="{% static 'images/rev-trans-tile.png' %}"
+                    data-lazyload="images/demo-product-showcase-rev-slider-02.png"
+                    class="w-100 h-auto"
+                    alt="image"
+                  />
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme"
+                  id="slide-layer-2"
+                  data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"opacity:0;fb:30px;sX:1.5;sY:1.5;opacity:0;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-type="image"
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-x="['center','center','center','center']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-hoffset="['0','0','0','0']"
+                  data-voffset="['-100','-40','-65','-50']"
+                  data-width="['775', '580', '500', '300']"
+                  data-height="['auto', 'auto', 'auto', 'auto']"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  style="z-index: 5;"
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="8"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <img
+                      src="{% static 'images/rev-trans-tile.png' %}"
+                      data-lazyload="images/POSH.png"
+                      class="w-100 h-auto rotating-image"
+                      alt="image"
+                    />
+                  </div>
+                </div>
+
+                <style>
+                  @keyframes rotate {
+                      0% {
+                          transform: rotate(0deg);
+                      }
+                      100% {
+                          transform: rotate(360deg);
+                      }
+                  }
+
+                  .rotating-image {
+                      animation: rotate 10s linear;
+                  }
+
+                  .tilted-image {
+                      transform: rotate(20deg);
+                      /* Adjust skew angles as needed */
+                      transition: transform 1s ease-in-out;
+                  }
+                </style>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      const image = document.querySelector('.rotating-image');
+
+                      image.addEventListener('animationend', function() {
+                          image.classList.remove('rotating-image');
+                          image.classList.add('tilted-image');
+                      });
+                  });
+                </script>
+
+                <div
+                  class="tp-caption tp-resizeme wave-animation"
+                  id="slide-layer-13"
+                  data-visibility="['on','on','on','off']"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['150','110','100','50']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-voffset="['90','80','40','0']"
+                  data-width="['50','40','40','30']"
+                  data-height="['250','220','200','150']"
+                  data-type="shape"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  data-frames='[{"delay":3000,"speed":3000,"frame":"0","from":"rZ:30;","to":"rZ:30;","ease":"Power3.easeInOut"}]'
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="5"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme wave-animation"
+                  id="slide-layer-14"
+                  data-visibility="['on','on','on','off']"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['-150','-150','-100','-50']"
+                  data-y="['middle','middle','middle','middle']"
+                  data-voffset="['90','100','30','0']"
+                  data-width="['50','40','40','30']"
+                  data-height="['250','220','200','150']"
+                  data-type="shape"
+                  data-responsive_offset="off"
+                  data-responsive="on"
+                  data-frames='[{"delay":3000,"speed":3000,"frame":"0","from":"rZ:-210;","to":"rZ:-210;","ease":"Power3.easeInOut"}]'
+                >
+                  <div
+                    class="rs-looped rs-wave"
+                    data-speed="5"
+                    data-angle="0"
+                    data-radius="10px"
+                    data-origin="50% 50%"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme alt-font"
+                  id="slide-layer-3"
+                  data-frames='[{"delay": 2200, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                                     {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-type="text"
+                  data-fontsize="['20','16','15','15']"
+                  data-lineheight="['32','32','32','24']"
+                  data-fontweight="['400', '400', '400', '400']"
+                  data-color="['#828282','#828282','#828282','#828282']"
+                  data-textalign="['left','left','left','left']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10','10','30','15']"
+                  data-voffset="['340','140','160','130']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-basealign="grid"
+                >
+                  Nature
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-4"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":640,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  4.5mL of E-Liquid
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-5"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":5000,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  4.5% Nicotine
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-6"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','700']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['left', 'left', 'left', 'left']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['left','left','left','left']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":7500,"speed":2000,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[-100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  Disposible E-Cig
+                </div>
+
+                <div
+                  class="tp-caption tp-resizeme alt-font"
+                  id="slide-layer-7"
+                  data-frames='[{"delay": 2200, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                                     {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+                  data-visibility="['on', 'on', 'on', 'on']"
+                  data-type="text"
+                  data-fontsize="['20','16','15','15']"
+                  data-lineheight="['32','32','32','24']"
+                  data-fontweight="['400', '400', '400', '400']"
+                  data-color="['#828282','#828282','#828282','#828282']"
+                  data-textalign="['right','right','right','right']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10','10','30','15']"
+                  data-voffset="['340','140','160','130']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="['nowrap', 'nowrap', 'nowrap', 'nowrap']"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-basealign="grid"
+                >
+                  Specialties
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-8"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  21 Flavours
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-9"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":5000,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":660,"speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power2.easeInOut"}]'
+                >
+                  No Filling OR Charging
+                </div>
+
+                <div
+                  class="tp-caption alt-font tp-resizeme"
+                  id="slide-layer-10"
+                  data-fontsize="['28','22','20','18']"
+                  data-lineheight="['38','34','36','30']"
+                  data-fontweight="['700','700','700','600']"
+                  data-color="['#232323', '#232323', '#232323', '#232323']"
+                  data-textalign="['right', 'right', 'right', 'right']"
+                  data-letterspacing="['-1','0','0','0']"
+                  data-x="['right','right','right','right']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-hoffset="['10', '10', '30', '15']"
+                  data-voffset="['300', '110', '130', '105']"
+                  data-whitespace="['nowrap','nowrap','nowrap','nowrap']"
+                  data-type="text"
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":7500,"speed":2000,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:[100%];y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":600,"to":"y:30px;rX:45deg;sX:0.8;sY:0.8;opacity:0;","ease":"Power3.easeInOut"}]'
+                >
+                  1500 Puffs
+                </div>
+
+                <a
+                  class="tp-caption text-uppercase alt-font d-flex justify-content-center align-items-center play-video-botton popup-youtube"
+                  href="https://www.youtube.com/watch?v=cfXHhfNy7tU"
+                  id="slide-layer-11"
+                  data-x="['center','center','center','center']"
+                  data-hoffset="['0','0','0','0']"
+                  data-y="['bottom','bottom','bottom','bottom']"
+                  data-voffset="['110','50','50','25']"
+                  data-color="['#2c3038', '#2c3038', '#2c3038', '#2c3038']"
+                  data-fontsize="['22','18','16','15']"
+                  data-lineheight="['74','60','50','55']"
+                  data-textalign="['center','center','center','center']"
+                  data-width="['280','220','200','200']"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-fontweight="['700','700','700','700']"
+                  data-type="button"
+                  data-actions=""
+                  data-responsive_offset="off"
+                  data-responsive="off"
+                  data-frames='[{"delay":"+990","speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":750,"frame":"999","to":"x:[-100%];opacity:1;","ease":"Power4.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgba(0,0,0,1);bc:rgba(0,0,0,1);bs:solid;bw:0 0 0 0;"}]'
+                  style="background-color:#ffffff; border-radius: 50px;-webkit-box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2); -moz-box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2);box-shadow: 0px 0px 30px 0px rgba(54,57,64,0.2);"
+                >
+                  play<i
+                    class="feather icon-feather-play-circle"
+                    style="font-size: 38px; padding: 0 10px; background: -webkit-linear-gradient(0deg, #ff007b 15%, #a419be 65%, #7b16da 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
+                  ></i
+                  >video</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article> 
+    </section>
+
+<!-- homepage/frontend/index2.html -->
+
+<div class="product-page-wrapper">
+  <div class="product-image-container">
+      <img id="main-image" src="{{ product.image.url }}" style="width: 400px; height: 500px; object-fit: contain;"> <!-- Main image with fixed frame -->
+      <div class="thumbnail-container">
+          <img onclick="changeMainImage('{{ product.image.url }}')" src="{{ product.image.url }}" style="width: 100px; height: 100px; object-fit: contain;">
+          <img onclick="changeMainImage('{{ product.hover_image.url }}')" src="{{ product.hover_image.url }}" style="width: 100px; height: 100px; object-fit: contain;">
+      </div>
+  </div>
+  <div class="product-info-container" style="margin-top: 20px;">
+      <h1>{{ product.title }}</h1>
+      <p>{{ product.description }}</p>
+      <div class="rating-info">⭐⭐⭐⭐⭐ <span>27 reviews</span></div>
+      <div class="price-info">
+          <span class="original-product-price">Rs. {{ product.price|floatformat:2 }}</span>
+          {% if discounted_price %}
+              <span class="discounted-product-price">Rs. {{ discounted_price|floatformat:2 }}</span>
+          {% endif %}
+      </div>
+      <ul class="product-attributes">
+          <li>250,000+ Happy customers</li>
+          <li>Easy Return & Exchange</li>
+          <li>Fast delivery all over Pakistan</li>
+          <li>Product ready to ship</li>
+      </ul>
+      
+      <!-- Quantity control section -->
+      <div class="quantity-selector" style="display: flex; align-items: center; margin-top: 20px;">
+          <button onclick="updateQuantity(-1)" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; font-size: 16px; margin-right: 10px;">-</button>
+          <input type="number" id="quantity" value="1" min="1" style="width: 50px; text-align: center; border: 1px solid #ccc; font-size: 16px; padding: 5px; margin-right: 10px;">
+          <button onclick="updateQuantity(1)" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; font-size: 16px;">+</button>
+      </div>
+
+      <button class="add-to-cart-button" style="margin-top: 20px;">Add to Cart</button>
+      <button class="buy-now-button" style="margin-top: 10px;">Buy It Now</button>
+  </div>
+</div>
+
+<script>
+  function updateQuantity(change) {
+      var quantityInput = document.getElementById('quantity');
+      var currentQuantity = parseInt(quantityInput.value);
+      var newQuantity = currentQuantity + change;
+
+      // Prevent the quantity from going below 1
+      if (newQuantity < 1) {
+          newQuantity = 1;
+      }
+
+      // Update the input field with the new quantity
+      quantityInput.value = newQuantity;
+  }
+
+  function validateQuantity(input) {
+      // Ensure the quantity is always a positive integer and at least 1
+      if (input.value < 1 || isNaN(input.value)) {
+          input.value = 1;
+      }
+  }
+</script>
+
+<!-- Full-screen Image Overlay -->
+<div id="image-overlay" onclick="closeOverlay()">
+  <img id="overlay-image">
+</div>
+
+<style>
+  /* Styling for the main image and thumbnails */
+  .product-image-container img { cursor: pointer; }
+  
+  /* Full-screen overlay */
+  #image-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+  }
+
+  #image-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+  }
+</style>
+
+<script>
+  // Change main image when thumbnail is clicked
+  function changeMainImage(imageUrl) {
+      document.getElementById('main-image').src = imageUrl;
+  }
+
+  // Open full-screen overlay when main image is clicked
+  document.getElementById('main-image').onclick = function () {
+      document.getElementById('overlay-image').src = this.src;
+      document.getElementById('image-overlay').style.display = 'flex';
+  };
+
+  // Close the full-screen overlay
+  function closeOverlay() {
+      document.getElementById('image-overlay').style.display = 'none';
+  }
+</script>
+
+<div>
+  <h3 style="
+  margin-left: 10%; 
+  margin-top: 3vw; 
+  text-align: center;
+  max-width: 90%;
+">
+  <b>Frequently Bought Together</b>
+</h3>
+<div class="custom-product-listing" id="searchResults" 
+style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; padding: 20px; margin: 0 auto; max-width: 1200px;">
+
+{% for product in products %}
+ <div class="product-card" style="background-color: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; margin: 10px; width: 250px; text-align: center;">
+     
+     <!-- Product Image -->
+     <div class="product-image-frame" style="position: relative; width: 100%; height: 250px; overflow: hidden;">
+         <a href="{% url 'index2_product' product.id %}">
+             <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image normal-image" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+         </a>
+         <a href="{% url 'index2_product' product.id %}">
+             <img src="{{ product.hover_image.url }}" alt="{{ product.title }} hover" class="product-image hover-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s ease;">
+         </a>
+     </div>
+     
+     <!-- Product Details -->
+     <div class="product-details" style="padding: 15px;">
+         <h2 class="product-title" style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">{{ product.title }}</h2>
+         {% load custom_filters %}
+
+         <!-- Product Price -->
+          <script>
+          actual_price = product.price - product.discount
+        </script>
+         <p class="product-price" style="margin: 10px 0; color: #e91e63;">
+          {% if product.discount %}
+          <span class="original-price" style="text-decoration: line-through; color: #999;">RS. {{ product.price|floatformat:2 }}</span>
+          <span class="discounted-price" style="font-weight: bold; color: #e91e63; font-size: 18px;">RS.  {{ product.price|subtract:product.discount|floatformat:2 }}</span>
+      {% else %}
+          <span class="current-price" style="font-weight: bold; font-size: 18px;">RS. {{ product.price|floatformat:2 }}</span>
+      {% endif %}
+         </p>
+         
+         <!-- Product Description -->
+         <p class="product-description" style="font-size: 14px; color: #666; margin-bottom: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+             {{ product.description }}
+         </p>
+         
+         <!-- Add to Cart Button -->
+         <button class="add-to-cart-btn" data-product-id="{{ product.id }}" style="padding: 10px 20px; font-size: 16px; background-color: rgb(130, 27, 210); color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+             Add to Cart
+         </button>
+     </div>
+ </div>
+{% endfor %}
+</div>
+</div>
+
+<script>
+// Add hover effect for the product image
+document.querySelectorAll('.product-card').forEach(card => {
+card.addEventListener('mouseenter', () => {
+ const normalImage = card.querySelector('.normal-image');
+ const hoverImage = card.querySelector('.hover-image');
+ normalImage.style.opacity = '0';
+ hoverImage.style.opacity = '1';
+});
+card.addEventListener('mouseleave', () => {
+ const normalImage = card.querySelector('.normal-image');
+ const hoverImage = card.querySelector('.hover-image');
+ normalImage.style.opacity = '1';
+ hoverImage.style.opacity = '0';
+});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- homepage/frontend/index2.html -->
+<div style="width: 90%; margin: 20px auto; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; font-family: Arial, sans-serif;">
+  <div style="text-align: center; color: #333;">
+      <h1 style="font-size: 2em; color: #333;" class="head title">{{ content.quadra_title }}</h1>
+      <h2 style="font-size: 1.5em; color: #555;" class="sub-title">{{ content.sub_quadra_title }}</h2>
+  </div>
+  
+  <div style="margin-top: 20px;">
+      <div class="about-us">
+          <p>{{ content.narrative_section }}</p>
+      </div>
+  </div>
+  
+  <div style="margin-top: 20px;">
+      <h3 style="color: #333;">Shipping Information</h3>
+      <div>{{ content.delivery_info|linebreaks }}</div>
+  </div>
+  
+  <div style="margin-top: 30px; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+      <h3 style="color: #333;">Order Now</h3>
+      <div>{{ content.order_instructions|linebreaks }}</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="text-center">
+  <a
+    href="#purchase"
+    class="btn btn-gradient-purple-pink w-50 fs-30 border-0 p-4 sm-p-2 fw-700 text-uppercase-inherit"
+    >Purchase now</a>
+</div>
+
+    <div class="col-12 mt-30px">
+      <ul
+        class="list-style-05 text-center text-uppercase ls-1px fs-16 fw-500"
+      >
+        <li>Enjoy</li>
+        <li>Complimentary</li>
+        <li>Free delivery</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+  
+
+
+
+    <footer class="py-4 bg-light">
+      <div class="container">
+        <div class="row justify-content-between align-items-start">
+          <!-- Contact Information -->
+          <div class="col-md-4 col-sm-12 mb-4 mb-md-0">
+            <div class="contact-info">
+              <span class="fs-19 d-block font-weight-bold text-dark mb-3"
+                >Let's Talk With Us</span
+              >
+              <h6 class="fw-700 mb-3">
+                <a
+                  href="tel:+923161124655"
+                  class="text-dark d-flex align-items-center"
+                >
+                  <i class="fa-solid fa-phone-volume me-2 text-gray fs-20"></i>
+                  +92 316 1124655
+                </a>
+              </h6>
+              <span class="fs-19 mt-4 d-block font-weight-bold text-dark"
+                >Our Address</span
+              >
+              <p class="text-dark mb-3">
+                <i class="fa-solid fa-location-dot me-2 text-gray fs-20"></i>
+                F-195 Jahangir Road West, Karachi
+              </p>
+              <span class="fs-19 mt-4 d-block font-weight-bold text-dark"
+                >Return Policy</span
+              >
+              <p class="text-dark mb-0">
+                At <strong>BS Sensation</strong>, you can return any perfume
+                within <strong>15 days</strong> of purchase.
+              </p>
+            </div>
+          </div>
+
+          <!-- Customer Care Information -->
+          <div class="col-md-4 col-sm-12 text-center text-md-end">
+            <span class="fs-19 d-block mb-2">Get Customer Care</span>
+            <h6 class="fw-700 mb-0">
+              <a
+                href="mailto:support@bssensation.com"
+                class="text-dark text-decoration-none"
+                >support@bssensation.com</a
+              >
+            </h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      footer {
+          background-color: #f8f9fa;
+      }
+      .contact-info {
+          padding: 1rem;
+      }
+      .text-dark {
+          color: #000 !important;
+      }
+      .text-gray {
+          color: #6c757d;
+      }
+      h6 a {
+          text-decoration: none;
+          transition: color 0.2s;
+      }
+      h6 a:hover {
+          color: #007bff;
+      }
+      @media (max-width: 768px) {
+          .contact-info, .col-md-4 {
+              text-align: center;
+          }
+          .text-md-end {
+              text-align: center !important;
+          }
+      }
+      @media (max-width: 576px) {
+          .contact-info {
+              padding: 0.5rem;
+          }
+          .fs-19 {
+              font-size: 16px;
+          }
+          .fw-700 {
+              font-weight: 600;
+          }
+      }
+    </style>
+
+    <footer
+      class="pt-25px pb-25px border-top border-color-extra-medium-gray fs-16"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 md-mb-10px text-center text-lg-start">
+            <ul class="footer-navbar lh-normal">
+              <li class="nav-item">
+                <a href="#overview" class="inner-link nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#purchase" class="inner-link nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="#design" class="inner-link nav-link">Design</a>
+              </li>
+              <li class="nav-item">
+                <a href="#review" class="inner-link nav-link">Review</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pricing" class="inner-link nav-link">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="inner-link nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="col-lg-5 last-paragraph-no-margin text-center text-lg-end"
+          >
+            <p>
+              © Sponsered By
+              <a
+                href="https://www.elitechain.co/"
+                target="_blank"
+                class="text-decoration-line-bottom text-dark-gray fw-600"
+              >
+                Elitechain LLC</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-progress d-none d-xxl-block">
+      <a href="#" class="scroll-top" aria-label="scroll">
+        <span class="scroll-text">Scroll</span
+        ><span class="scroll-line"><span class="scroll-point"></span></span>
+      </a>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/vendors.min.js' %}"
+    ></script>
+    <script>
+      // Function to add a product to the cart
+
+
+      // Function to update the cart count display
+      function updateCartCount() {
+          fetch('Admin/cart_count.php')
+              .then(response => {
+                  return response.json();
+              })
+              .then(data => {
+                  const cartCountElement = document.getElementById('cart-count');
+                  if (cartCountElement) {
+                      cartCountElement.textContent = `Cart (${data.cart_count})`;
+                  }
+              })
+              .catch(error => console.error('Fetch Error:', error));
+      }
+
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+          updateCartCount(); // Ensure the cart count is updated after DOM is loaded
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* https://learn.jquery.com/using-jquery-core/document-ready/ */
+      jQuery(document).ready(function() {
+
+          /* initialize the slider based on the Slider's ID attribute from the wrapper above */
+          jQuery('#rev_slider_31_1').show().revolution({
+
+              /* options are 'auto', 'fullwidth' or 'fullscreen' */
+              sliderLayout: 'fullwidth',
+              /* sets the Slider's default timeline */
+              delay: 9000,
+              /* options that disable autoplay */
+              stopLoop: "off",
+              stopAfterLoops: 0,
+              stopAtSlide: 1,
+              /* Lazy Load options are "all", "smart", "single" and "none" */
+              lazyType: "smart",
+              spinner: "spinner0",
+              responsiveLevels: [1240, 1024, 778, 480],
+              /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+              gridwidth: [1190, 1024, 778, 480],
+              /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+              gridheight: [1250, 920, 1000, 650],
+              /* Lazy Load options are "all", "smart", "single" and "none" */
+              lazyType: "none",
+              parallax: {
+                  type: "mouse+scroll",
+                  origo: "slidercenter",
+                  speed: 400,
+                  speedbg: 1500,
+                  speedls: 1000,
+                  levels: [5, 10, 15, 20, 25, 30, 35, 40, 60, 46, -10, -15, -20, -25, -30, 55],
+              },
+          });
+      });
+    </script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-DND93RJKBT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-DND93RJKBT');
+    </script>
+    <script>
+      function showLoaderAndRedirect(productId) {
+          // Show the loader
+          document.getElementById('loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.2 seconds
+          setTimeout(function() {
+              document.getElementById('loader-overlay').style.display = 'none'; // Hide the loader
+              window.location.href = 'Admin/product_page.php?id=' + productId; // Redirect to the product page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+    <script>
+      function showLoaderAndRedirect(productId) {
+          // Show the loader
+          document.getElementById('loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.2 seconds
+          setTimeout(function() {
+              document.getElementById('loader-overlay').style.display = 'none'; // Hide the loader
+              window.location.href = 'Admin/product_page.php?id=' + productId; // Redirect to the product page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      function showLoaderAndRedirectToMenSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'men_section.php'; // Redirect to the men section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      function showLoaderAndRedirectToWomenSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay-women').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'women_section.php'; // Redirect to the women section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+    <script>
+      function showLoaderAndRedirectToTesterSection() {
+          // Show the loader
+          document.getElementById('custom-loader-overlay-tester').style.display = 'block';
+
+          // Use setTimeout to delay the redirection after 0.9 seconds
+          setTimeout(function() {
+              window.location.href = 'tester_section.php'; // Redirect to the tester section page
+          }, 900); // Delay of 0.9 seconds (900 milliseconds)
+      }
+    </script>
+
+    <script>
+      $(document).ready(function() {
+          // On form submit
+          $('#search-form').on('submit', function(e) {
+              e.preventDefault(); // Prevent the default form submission
+
+              // Get the search input value
+              let searchQuery = $('#search-input').val();
+
+              // Perform AJAX request
+              $.ajax({
+                  url: 'search_tester.php', // Your PHP file
+                  type: 'GET',
+                  data: {
+                      search: searchQuery
+                  }, // Send the search query
+                  success: function(data) {
+                      $('#searchResults')[0].scrollIntoView({
+                          behavior: 'smooth'
+                      });
+
+                      // Display the results in the search-results div
+                      $('.custom-product-listing').html(data);
+                  },
+                  error: function() {
+                      $('#search-results').html('<p>An error occurred while searching.</p>');
+                  }
+              });
+          });
+
+          // Check if there's a search query in the URL and submit the form
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.has('search')) {
+              $('#search-input').val(urlParams.get('search')); // Set input value
+              $('#search-form').submit(); // Trigger the search
+          }
+      });
+    </script>
+  </body>
+</html>
